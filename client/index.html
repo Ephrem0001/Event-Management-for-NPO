@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#4F46E5" />
+    <meta name="description" content="Event Management Platform for Non-Profit Organizations" />
+    
+    <!-- iOS PWA Enhancements -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="EventNPO" />
+    
+    <!-- iOS icons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/icon-167x167.png" />
+    
+    <!-- iOS splash screens -->
+    <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- PWA install prompt styles -->
+    <style>
+      @media (max-width: 767px) {
+        .pwa-install-prompt {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 16px;
+          background-color: var(--background, #f8f9fa);
+          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          animation: slideUp 0.3s ease-out;
+          max-width: 100%;
+        }
+        
+        @keyframes slideUp {
+          from { transform: translateY(100%); }
+          to { transform: translateY(0); }
+        }
+        
+        /* Safari-specific styling */
+        @supports (-webkit-touch-callout: none) {
+          .pwa-install-prompt {
+            padding-bottom: calc(16px + env(safe-area-inset-bottom, 0));
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+          }
+        }
+        
+        /* Dark mode styling */
+        @media (prefers-color-scheme: dark) {
+          .pwa-install-prompt {
+            background-color: var(--background, #1a1a1a);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+          }
+          
+          @supports (-webkit-touch-callout: none) {
+            .pwa-install-prompt {
+              background-color: rgba(0, 0, 0, 0.85);
+            }
+          }
+        }
+      }
+    </style>
+    
+    <title>NPO Event Manager</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
